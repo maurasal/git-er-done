@@ -1,8 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var currentDayEl = $('#currentDay');
-const hour9 = $('#hour-9');
+const hour09 = $('#hour-09');
 const hour10 = $('#hour-10');
 const hour11 = $('#hour-11');
 const hour12 = $('#hour-12');
@@ -11,10 +10,12 @@ const hour14 = $('#hour-14');
 const hour15 = $('#hour-15');
 const hour16 = $('#hour-16');
 const hour17 = $('#hour-17');
-const timeSlots = [hour9, hour10, hour11, hour12, hour13, hour14, hour15, hour16, hour17];
-const currentDay = (dayjs().format('dddd'));
-const currentTime = (dayjs().format('hh:mm'));
+const timeSlots = [hour09, hour10, hour11, hour12, hour13, hour14, hour15, hour16, hour17];
+
+const currentDay = (dayjs().format('dddd [at] h:mm'));
 const currentHour = (dayjs().get('hour'));
+const currentDayEl = $('#currentDay');
+currentDayEl.text("It is currently: " + currentDay);
 
 $(function pastOrPresent() {
   if (currentHour < 9) {
@@ -136,15 +137,10 @@ $(function pastOrPresent() {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-});
 
-currentDayEl.text(currentDay);
-console.log(currentTime);
-console.log(currentDay);
-console.log(currentHour);
-
-
+})
